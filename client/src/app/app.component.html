@@ -1,0 +1,22 @@
+ <div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1><a href="" class="title"> Blog</a></h1>
+      </div>
+<mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <div *ngIf="loginStatus === false">
+      <button mat-menu-item [routerLink]="['/login']">Login</button>
+      <button mat-menu-item [routerLink]="['/register']">Register</button>
+    </div>
+    <div *ngIf="loginStatus === true">
+      <button mat-menu-item [routerLink]="['/admin']">Home</button>
+      <button mat-menu-item [routerLink]="['/category']">Category</button>
+      <button mat-menu-item [routerLink]="['/post']">Post</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </div>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet> 
